@@ -1,18 +1,24 @@
 <h2>My Heroes</h2>
 <ul class="heroes">
-    <li 
+    <!-- <li 
         *ngFor="let hero of heroes" 
         (click)="onSelect(hero)" 
         [title]="hero.superpower || 'Unknown Superpower'" 
         [class.selected]="hero === selectedHero"
+    > -->
+    <li 
+        *ngFor="let hero of heroes" 
+        [title]="hero.superpower || 'Unknown Superpower'" 
     >
         <div>
-            <span class="badge">
-                {{hero.id}}.
-            </span>
-            <b>{{ hero.name }}</b>
+            <a routerLink="/heroes/{{hero.id}}">
+                <span class="badge">
+                    {{hero.id}}.
+                </span>
+                <b>{{ hero.name }}</b>
+            </a>
         </div>
     </li>
 </ul>
 
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->

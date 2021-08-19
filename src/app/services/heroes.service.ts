@@ -14,9 +14,25 @@ export class HeroesService {
     this.allHeroes = mockHeroData;
   }
 
-  getHeroData = (): Observable<Hero[]> => {
+  getAllHeroData = (): Observable<Hero[]> => {
     const heroes = of(this.allHeroes);
-    this.messageService.add("HeroesService: Succesfully loaded heroes!");
+    this.messageService.add("HeroesService: Succesfully loaded all heroes");
     return heroes;
-  }
+  };
+
+  getHero = (id: Number): (Observable<Hero | false>) => {
+    if(!this.allHeroes) return of(false);
+    const hero = this.allHeroes.find(x => x.id === id);
+    if(hero) {
+      this.messageService.add(`HeroesService: Succesfully loaded hero ${id}!`);
+      return of(hero);
+    }
+    return of(false);
+  };
+
+  getPopularHeroes = (): Observable<Hero[]> => {
+    const heroes = of(this.allHeroes.slice(1, 5));
+    return heroes;
+  };
+
 }

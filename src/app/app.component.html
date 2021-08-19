@@ -1,4 +1,10 @@
 <h1> {{ metadata.title }} </h1>
 <h3> {{ metadata.description }} </h3>
-<app-heroes></app-heroes>
+
+<nav>
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/heroes">Show me the heroes!</a>
+</nav>
+
+<router-outlet></router-outlet>
 <app-messages></app-messages>

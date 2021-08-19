@@ -19,12 +19,12 @@ jobs:
       - name: Install and Build
         run: |
           npm install
-          npm run build
+          npm run gh-build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: build/${{ github.event.repository.name }} # The folder the action should deploy.
+          folder: dist/${{ github.event.repository.name }} # The folder the action should deploy.
           git-config-name: "Auto Build & Deploy"
           commit-message: "deploy: update build artifacts"
