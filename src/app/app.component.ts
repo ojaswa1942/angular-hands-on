@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-hands-on';
+  metadata = {
+    title: 'Heroes App',
+    description: `A dummy application for hands-on on Angular, yay!`,
+  };
+  
 }
