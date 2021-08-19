@@ -3,4 +3,3 @@ export interface Hero {
     name: string;
     superpower?: string;
 }
-
