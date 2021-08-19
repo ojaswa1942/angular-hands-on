@@ -1,0 +1,9 @@
+ 
+input {
+    padding: .5rem;
+    margin: .2rem 0;
+}
+
+label, span {
+    font-weight: bold;
+}
