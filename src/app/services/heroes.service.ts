@@ -74,7 +74,7 @@ export class HeroesService {
   }
 
   getPopularHeroes = (): Observable<Hero[]> => {
-    if(this.allHeroes.length){
+    if(this.allHeroes && this.allHeroes.length){
       return of(this.allHeroes.slice(1, 5));
     } 
 

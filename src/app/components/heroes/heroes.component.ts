@@ -18,7 +18,7 @@ export class HeroesComponent implements OnInit {
 
   ngOnInit(): void {
     this.heroesService.getAllHeroData()
-      .subscribe(heroes => this.heroes = heroes);
+      .subscribe(heroes => this.heroes = [...heroes]); // make a copy
   }
 
   toggleFormView = () => {
