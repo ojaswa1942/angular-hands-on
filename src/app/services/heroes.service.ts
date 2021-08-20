@@ -85,4 +85,24 @@ export class HeroesService {
     
   };
 
+  addHero = (name: string, superpower: string): (Observable<Hero>) => {
+    return this.http.post<Hero>(`${this.heroesUrl}`, { name, superpower }, this.httpOptions).pipe(
+      tap(x => {
+        this.log(`Added new hero ${x.id} to remote`);
+        this.allHeroes.push(x);
+      }),
+      catchError(this.handleError<Hero>('addHero'))
+    );
+  };
+
+  deleteHero(hero: Hero): Observable<any> {
+    return this.http.delete(`${this.heroesUrl}/${hero.id}`, this.httpOptions).pipe(
+      tap(_ => {
+        this.log(`Deleted hero id=${hero.id} from remote`);
+        this.allHeroes = this.allHeroes.filter(h => h.id != hero.id);
+      }),
+      catchError(this.handleError<any>('deleteHero'))
+    );
+  }
+
 }

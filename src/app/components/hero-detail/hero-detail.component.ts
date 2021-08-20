@@ -37,4 +37,11 @@ export class HeroDetailComponent implements OnInit {
       .subscribe(() => this.onBack());
     }
   }
+
+  delete = () => {
+    if(this.hero) {
+      this.heroesService.deleteHero(this.hero)
+      .subscribe(() => this.onBack());
+    }
+  }
 }

@@ -10,6 +10,7 @@ import { Hero } from 'src/app/services/models/serviceResponse.model';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
+  showNewForm: boolean = false;
   // selectedHero?: Hero;
 
   constructor(private heroesService: HeroesService, private messageService: MessageService) { 
@@ -18,6 +19,21 @@ export class HeroesComponent implements OnInit {
   ngOnInit(): void {
     this.heroesService.getAllHeroData()
       .subscribe(heroes => this.heroes = heroes);
+  }
+
+  toggleFormView = () => {
+    this.showNewForm = !this.showNewForm;
+  }
+
+  add = (name: string, superpower: string = "") => {
+    name = name.trim();
+    superpower = superpower.trim();
+
+    this.heroesService.addHero(name, superpower)
+    .subscribe(hero => {
+      this.heroes.push(hero);
+      this.showNewForm = false;
+    });
   }
 
   // onSelect = (hero: Hero): void => {

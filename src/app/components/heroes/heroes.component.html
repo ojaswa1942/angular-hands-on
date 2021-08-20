@@ -1,11 +1,19 @@
 <h2>My Heroes</h2>
+
+<button class="toggle-form-button" (click)="toggleFormView()" >Add +</button>
+<div class="new-hero-container" [ngClass]="{show: showNewForm}" >
+    <label for="new-hero">Hero name: </label>
+    <input id="new-hero" #heroName />
+    <label for="new-power">Superpower: </label>
+    <input id="new-power" #heroSuperpower />
+  
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button class="add-button" (click)="add(heroName.value, heroSuperpower.value); heroName.value=''; heroSuperpower.value='';">
+      Add hero
+    </button>
+</div>
+
 <ul class="heroes">
-    <!-- <li 
-        *ngFor="let hero of heroes" 
-        (click)="onSelect(hero)" 
-        [title]="hero.superpower || 'Unknown Superpower'" 
-        [class.selected]="hero === selectedHero"
-    > -->
     <li 
         *ngFor="let hero of heroes" 
         [title]="hero.superpower || 'Unknown Superpower'" 
@@ -20,5 +28,3 @@
         </div>
     </li>
 </ul>
-
-<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->

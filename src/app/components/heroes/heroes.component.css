@@ -51,3 +51,29 @@
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
   }
+
+  .new-hero-container {
+    height: 0;
+    transition: all 1s linear;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+  }
+  .show {
+      height: auto;
+  }
+
+  input {
+    padding: .5rem;
+    margin: .2rem 0;
+}
+
+label, span {
+    font-weight: bold;
+}
+  button {
+    margin: 5px;
+    padding: .5rem;
+    cursor: pointer;
+    }
