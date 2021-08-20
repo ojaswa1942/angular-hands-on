@@ -7,3 +7,9 @@ input {
 label, span {
     font-weight: bold;
 }
+
+button {
+    margin: 0 5px 10px 0;
+    padding: .5rem;
+    cursor: pointer;
+}
